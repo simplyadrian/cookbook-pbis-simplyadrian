@@ -1,11 +1,11 @@
-nativex-pbis CHANGELOG
+pbis-nativex CHANGELOG
 ======================
 
-This file is used to list changes made in each version of the nativex-pbis cookbook.
+This file is used to list changes made in each version of the pbis-nativex cookbook.
 
 0.1.0
 -----
-- [your_name] - Initial release of nativex-pbis
+- [your_name] - Initial release of pbis-nativex
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: nativex-pbis
+# Cookbook Name:: pbis-nativex
 # Recipe:: joindomain.rb
 #
 # Copyright 2014, NativeX
@@ -11,6 +11,6 @@ ad = Chef::EncryptedDataBagItem.load("credentials", "ad")
 bash "pbis join domain" do
   user "root"
   code <<-EOH
-  (domainjoin-cli join "#{node['nativex-pbis']['domain_name']}" ad["ad_username"] ad["ad_password"])
+  (domainjoin-cli join "#{node['pbis-nativex']['domain_name']}" ad["ad_username"] ad["ad_password"])
   EOH
 end

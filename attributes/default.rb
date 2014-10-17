@@ -1,2 +1,2 @@
 # Domain Name
-default['nativex-pbis']['domain_name'] = 'teamfreeze.com'
+default['pbis-nativex']['domain_name'] = 'teamfreeze.com'

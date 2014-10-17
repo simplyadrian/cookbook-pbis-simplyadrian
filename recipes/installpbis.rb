@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: nativex-pbis
+# Cookbook Name:: pbis-nativex
 # Recipe:: installpbis.rb
 #
 # Copyright 2014, NativeX
