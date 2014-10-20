@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-ad = Chef::EncryptedDataBagItem.load("credentials", "ad")
+ad = Chef::EncryptedDataBagItem.load("credentials", "pbis")
 bash "pbis join domain" do
   user "root"
   code <<-EOH
