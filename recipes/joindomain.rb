@@ -9,9 +9,13 @@
 
 ad = Chef::EncryptedDataBagItem.load("credentials", "pbis")
 bash "pbis join domain" do
-  user "root"
   code <<-EOH
-  (domainjoin-cli join --ou "#{node['pbis-nativex']['ou']}" "#{node['pbis-nativex']['domain_name']}" #{ad["ad_username"]} #{ad["ad_password"]})
+  if /opt/pbis/bin/get-status |grep "Status:        Unknown";
+  then
+    (domainjoin-cli join --ou "#{node['pbis-nativex']['ou']}" "#{node['pbis-nativex']['domain_name']}" #{ad["ad_username"]} #{ad["ad_password"]})
+  else
+    echo "Already joinded to Teamfreeze.com"
+    exit 0
+  fi
   EOH
-
 end

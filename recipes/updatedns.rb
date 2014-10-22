@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: pbis-nativex
-# Recipe:: joindomain.rb
+# Recipe:: updatedns.rb
 #
 # Copyright 2014, NativeX
 #
@@ -9,7 +9,7 @@
 
 bash "pbis update dns" do
   code <<-EOH
-  update-dns
+  /opt/pbis/bin/update-dns
   EOH
 
 end

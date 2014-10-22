@@ -9,3 +9,4 @@
 
 include_recipe	"pbis-nativex::installpbis"
 include_recipe  "pbis-nativex::joindomain"
+include_recipe  "pbis-nativex::updatedns"
