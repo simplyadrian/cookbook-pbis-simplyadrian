@@ -7,6 +7,9 @@
 # All rights reserved - Do Not Redistribute
 #
 
+# If we're in EC2, then need to dynamically determine the the OU based on region
+include_recipe 'pbis-nativex::dynamic_ou' if node['cloud']['provider'] == 'ec2'
+
 ad = Chef::EncryptedDataBagItem.load("credentials", "pbis")
 bash "pbis join domain" do
   code <<-EOH
