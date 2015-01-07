@@ -11,13 +11,13 @@
 ## NOT SURE IF WE REALLY NEED THIS
 include_recipe "ohai-nativex::default" if node['cloud']['provider'] == 'ec2'
 
-ruby_block "determine_ec2_region_and_set_ou" do
+ruby_block "determine_ec2_region_and_set_oupath" do
   block do
     if node['aws']['region']
-      node.default['pbis-nativex']['ou'] = "OU=Linux,OU=#{node['aws']['region']},OU=AWS Servers,OU=Computer Accounts,DC=teamfreeze,DC=com"
-      Chef::Log.debug("Set ['pbis-nativex']['ou'] to OU=Linux,OU=#{node['aws']['region']},OU=AWS Servers,OU=Computer Accounts,DC=teamfreeze,DC=com")
+      node.default['pbis-nativex']['oupath'] = "OU=Linux,OU=#{node['aws']['region']},OU=AWS Servers,OU=Computer Accounts,DC=teamfreeze,DC=com"
+      Chef::Log.debug("Set ['pbis-nativex']['oupath'] to OU=Linux,OU=#{node['aws']['region']},OU=AWS Servers,OU=Computer Accounts,DC=teamfreeze,DC=com")
     else
-      Chef::Log.warn("Undefined AWS region! Cannot automatically set the proper OU.")
+      Chef::Log.warn("Undefined AWS region! Cannot automatically set the proper OU Path.")
     end
   end
   action :run

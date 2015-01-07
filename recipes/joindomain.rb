@@ -14,7 +14,7 @@ ad = Chef::EncryptedDataBagItem.load("credentials", "pbis")
 
 bash "pbis join domain" do
   code lazy { <<-EOH
-  domainjoin-cli join --ou "#{node['pbis-nativex']['ou']}" "#{node['pbis-nativex']['domain_name']}" #{ad['ad_username']} #{ad['ad_password']}
+  domainjoin-cli join --ou "#{node['pbis-nativex']['oupath']}" "#{node['pbis-nativex']['domain_name']}" #{ad['ad_username']} #{ad['ad_password']}
   EOH
   }
   only_if "/opt/pbis/bin/get-status |grep \"Status:        Unknown\";"
