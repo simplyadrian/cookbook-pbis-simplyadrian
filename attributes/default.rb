@@ -10,4 +10,11 @@ default['pbis-nativex']['organizational_unit_level_3'] = 'Linux'
 default['pbis-nativex']['organizational_unit_level_4'] = "#{node['environment']}"
 default['pbis-nativex']['organizational_unit_level_5'] = 'One Off Servers'
 #Full OU path
-default['pbis-nativex']['oupath'] = "OU=#{node['pbis-nativex']['organizational_unit_level_5']},OU=#{node['pbis-nativex']['organizational_unit_level_4']},OU=#{node['pbis-nativex']['organizational_unit_level_3']},OU=#{node['pbis-nativex']['organizational_unit_level_2']},OU=#{node['pbis-nativex']['organizational_unit_level_1']},OU=#{node['pbis-nativex']['organizational_unit_level_0']},DC=#{node['pbis-nativex']['domain_component_level_1']},DC=#{node['pbis-nativex']['domain_component_level_0']}"
+default['pbis-nativex']['oupath'] = "OU=#{node['pbis-nativex']['organizational_unit_level_5']},"\
+                                    "OU=#{node['pbis-nativex']['organizational_unit_level_4']},"\
+                                    "OU=#{node['pbis-nativex']['organizational_unit_level_3']},"\
+                                    "OU=#{node['pbis-nativex']['organizational_unit_level_2']},"\
+                                    "OU=#{node['pbis-nativex']['organizational_unit_level_1']},"\
+                                    "OU=#{node['pbis-nativex']['organizational_unit_level_0']},"\
+                                    "DC=#{node['pbis-nativex']['domain_component_level_1']},"\
+                                    "DC=#{node['pbis-nativex']['domain_component_level_0']}"
