@@ -14,8 +14,26 @@ include_recipe "ohai-nativex::default" if node['cloud']['provider'] == 'ec2'
 ruby_block "determine_ec2_region_and_set_oupath" do
   block do
     if node['aws']['region']
-      node.default['pbis-nativex']['oupath'] = "OU=Linux,OU=#{node['aws']['region']},OU=AWS Servers,OU=Computer Accounts,DC=teamfreeze,DC=com"
-      Chef::Log.debug("Set ['pbis-nativex']['oupath'] to OU=Linux,OU=#{node['aws']['region']},OU=AWS Servers,OU=Computer Accounts,DC=teamfreeze,DC=com")
+      # Set the region in the tree, then rebuild the path.
+      node.default['pbis-nativex']['organizational_unit_level_2'] = node['aws']['region']
+      node.default['pbis-nativex']['oupath'] = "OU=#{node['pbis-nativex']['organizational_unit_level_5']},"\
+                                               "OU=#{node['pbis-nativex']['organizational_unit_level_4']},"\
+                                               "OU=#{node['pbis-nativex']['organizational_unit_level_3']},"\
+                                               "OU=#{node['pbis-nativex']['organizational_unit_level_2']},"\
+                                               "OU=#{node['pbis-nativex']['organizational_unit_level_1']},"\
+                                               "OU=#{node['pbis-nativex']['organizational_unit_level_0']},"\
+                                               "DC=#{node['pbis-nativex']['domain_component_level_1']},"\
+                                               "DC=#{node['pbis-nativex']['domain_component_level_0']}"
+
+      debugStr = "Set ['pbis-nativex']['oupath'] to OU=#{node['pbis-nativex']['organizational_unit_level_5']},"\
+                                                   "OU=#{node['pbis-nativex']['organizational_unit_level_4']},"\
+                                                   "OU=#{node['pbis-nativex']['organizational_unit_level_3']},"\
+                                                   "OU=#{node['pbis-nativex']['organizational_unit_level_2']},"\
+                                                   "OU=#{node['pbis-nativex']['organizational_unit_level_1']},"\
+                                                   "OU=#{node['pbis-nativex']['organizational_unit_level_0']},"\
+                                                   "DC=#{node['pbis-nativex']['domain_component_level_1']},"\
+                                                   "DC=#{node['pbis-nativex']['domain_component_level_0']}"
+      Chef::Log.debug(debugStr)
     else
       Chef::Log.warn("Undefined AWS region! Cannot automatically set the proper OU Path.")
     end
