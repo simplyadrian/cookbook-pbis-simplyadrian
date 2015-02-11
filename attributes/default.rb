@@ -7,7 +7,7 @@ default['pbis-nativex']['organizational_unit_level_0'] = 'Computer Accounts'
 default['pbis-nativex']['organizational_unit_level_1'] = 'AWS Servers'
 default['pbis-nativex']['organizational_unit_level_2'] = 'UnknownRegion'
 default['pbis-nativex']['organizational_unit_level_3'] = 'Linux'
-default['pbis-nativex']['organizational_unit_level_4'] = "#{node.chef_environment}"
+default['pbis-nativex']['organizational_unit_level_4'] = "#{node.chef_environment.split('-').last}"
 default['pbis-nativex']['organizational_unit_level_5'] = 'One Off Servers'
 #Full OU path
 default['pbis-nativex']['oupath'] = "OU=#{node['pbis-nativex']['organizational_unit_level_5']},"\
