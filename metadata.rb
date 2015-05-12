@@ -1,10 +1,10 @@
-name             'pbis-nativex'
-maintainer       'NativeX'
-maintainer_email 'adrian.herrera@nativex.com'
+name             'pbis-simplyadrian'
+maintainer       'simplyadrian'
+maintainer_email 'simplyadrian@gmail.com'
 license          'All rights reserved'
-description      'Installs/Configures pbis-nativex'
+description      'Installs/Configures pbis-simplyadrian'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '1.0.1'
 
-depends		 'ad-nativex'
-depends          'ohai-nativex'
+depends  'ad-simplyadrian'
+depends  'ohai-simplyadrian'

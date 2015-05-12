@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: pbis-nativex
+# Cookbook Name:: pbis-simplyadrian
 # Recipe:: default
 #
-# Copyright 2014, NativeX 
+# Copyright 2014, simplyadrian 
 #
 # All rights reserved - Do Not Redistribute
 #
@@ -22,6 +22,6 @@ service "autofs" do
   action [:enable, :start, :reload]
 end
 
-include_recipe	"pbis-nativex::installpbis"
-include_recipe  "pbis-nativex::joindomain"
-include_recipe  "pbis-nativex::updatedns"
+include_recipe	"pbis-simplyadrian::installpbis"
+include_recipe  "pbis-simplyadrian::joindomain"
+include_recipe  "pbis-simplyadrian::updatedns"
